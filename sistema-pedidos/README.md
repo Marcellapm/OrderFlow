@@ -20,20 +20,6 @@ Sistema básico de gerenciamento de pedidos desenvolvido em Python. O sistema ut
 - Histórico completo de pedidos mantido
 - Listagem de pedidos ativos separada
 
-### Estrutura do Projeto
-
-\`\`\`
-sistema-pedidos/
-├── dados/
-│   ├── sistema_pedidos.xlsx      # Arquivo principal 
-│   └── exemplo_produtos.xlsx     # Arquivo com dados de exemplo
-├── scripts/
-│   ├── main.py                   # Sistema principal
-│   ├── test_sistema_completo.py  # Testes unitários completos
-│   ├── teste_concorrencia.py     # Testes de concorrência
-│   └── exemplo_uso.py            # Demonstração de uso
-└── README.md                     # Este arquivo
-\`\`\`
 
 ### Estrutura do Excel
 
@@ -57,29 +43,6 @@ O sistema utiliza um único arquivo Excel com duas abas:
 - `data_pedido`: Data e hora do pedido
 - `status`: Status do pedido (ativo/cancelado)
 
-### Pré-requisitos
-
-\`\`\`bash
-pip install pandas openpyxl
-\`\`\`
-
-### Como Usar
-
-1. **Executar o sistema principal:**
-\`\`\`bash
-python scripts/main.py
-\`\`\`
-
-2. **Executar testes:**
-\`\`\`bash
-python scripts/test_sistema_completo.py
-python scripts/teste_concorrencia.py
-\`\`\`
-
-3. **Ver exemplo de uso:**
-\`\`\`bash
-python scripts/exemplo_uso.py
-\`\`\`
 
 ### Funcionalidades do Menu
 
