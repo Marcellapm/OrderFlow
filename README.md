@@ -2,45 +2,44 @@
 OrderFlow is a lightweight and reliable system for managing product orders, ensuring data integrity and consistent stock control in concurrent environments.
 
 
+
+
+
+
+
 #Case 2
-🏦 Sistema Legado (On-Premises)
-Comunicação via VPN ou Direct Connect.
+🔸 Integração com Sistema Legado
+VPN ou AWS Direct Connect continua para integração segura.
 
-☁️ Nuvem AWS - Arquitetura Baseada em Microserviços
-🔹 1. Camada de Integração
-Serviço em Amazon ECS (Fargate) que:
+Criação de serviços de integração isolados em ECS que acessam o sistema legado e publicam dados em S3 ou em filas (por exemplo, SQS).
 
-Recebe/extrai dados do sistema legado via VPN.
+🔸 Orquestração e Execução de Microserviços
+Amazon ECS (Fargate) com containers para microserviços modulares.
 
-Publica mensagens em Amazon SQS/SNS ou envia arquivos para o Amazon S3.
+Cada serviço pode:
 
-🔹 2. Armazenamento de Dados
+Consumir eventos de filas (SQS/SNS).
+
+Consultar dados no S3 via Athena.
+
+Expor APIs por meio do API Gateway ou Application Load Balancer.
+
+🔸 Armazenamento e Consumo de Dados
 Amazon S3 como data lake central.
 
-Dados estruturados (ex: JSON, Parquet).
+Dados armazenados em formatos otimizados (Parquet/ORC).
 
-Controlado via AWS Glue (catálogo de dados e schema registry).
+AWS Glue para catalogação.
 
-Dados versionados e replicados (para backup e recuperação).
+Amazon Athena para consulta serverless de dados.
 
-🔹 3. Consumo e Processamento
-Microserviços em Amazon ECS (Fargate) que:
+🔸 Observabilidade e Monitoramento
+Datadog para:
 
-Processam eventos do SQS/SNS.
+Logs estruturados de todos os containers ECS.
 
-Consultam dados via Amazon Athena.
+Tracing distribuído entre serviços.
 
-Geram relatórios, processamentos ou notificações.
+Dashboards de performance e alertas automáticos.
 
-🔹 4. Exposição de Serviços
-APIs expostas via API Gateway ou ALB (Application Load Balancer) conectando-se aos containers ECS.
-
-🔹 5. Observabilidade
-Datadog com:
-
-Agentes instalados nos containers ECS.
-
-
-Integração com CloudWatch Logs, Metrics e Traces.
-
-Dashboards, alertas e rastreamento distribuído.
+Integração com AWS CloudWatch para métricas nativas.
