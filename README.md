@@ -12,7 +12,7 @@ OrderFlow is a lightweight and reliable system for managing product orders, ensu
 Integração com Sistema Legado
 VPN ou AWS Direct Connect continua para integração segura.
 
-Criação de serviços de integração isolados em ECS que acessam o sistema legado e publicam dados em S3 ou em filas (por exemplo, SQS).
+Criação de serviços de integração isolados que acessam o sistema legado e publicam dados em S3 ou em filas (por exemplo, SQS).
 
 Orquestração e Execução de Microserviços
 Amazon ECS (Fargate) com containers para microserviços modulares.
